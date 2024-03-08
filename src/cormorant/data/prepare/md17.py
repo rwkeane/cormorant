@@ -11,13 +11,13 @@ from cormorant.data.prepare.utils import download_data, is_int, cleanup_file
 md17_base_url = 'http://quantum-machine.org/gdml/data/npz/'
 
 md17_subsets = {'benzene': 'benzene_old_dft',
-               'uracil': 'uracil_dft',
-               'naphthalene': 'naphthalene_dft',
-               'aspirin': 'aspirin_dft',
-               'salicylic_acid': 'salicylic_dft',
-               'malonaldehyde': 'malonaldehyde_dft',
-               'ethanol': 'ethanol_dft',
-               'toluene': 'toluene_dft',
+               'uracil': 'md17_uracil',
+               'naphthalene': 'md17_naphthalene',
+               'aspirin': 'md17_aspirin',
+               'salicylic_acid': 'md17_salicylic',
+               'malonaldehyde': 'md17_malonaldehyde',
+               'ethanol': 'md17_ethanol',
+               'toluene': '	md17_toluene',
                'paracetamol': 'paracetamol_dft',
                'azobenzene': 'azobenzene_dft'
                }
@@ -90,16 +90,15 @@ def gen_splits_md17(num_pts):
     data_perm = np.random.permutation(num_pts)
 
     # Create masks for which splits to invoke
-    mask_train = np.zeros(num_pts, dtype=np.bool)
-    mask_valid = np.zeros(num_pts, dtype=np.bool)
-    mask_test = np.zeros(num_pts, dtype=np.bool)
+    mask_train = np.zeros(num_pts, dtype=bool)
+    mask_valid = np.zeros(num_pts, dtype=bool)
+    mask_test = np.zeros(num_pts, dtype=bool)
 
     # For historical reasons, this is the indexing on the
     # 50k/10k/10k train/valid/test splits used in the paper.
-    mask_train[:10000] = True
-    mask_valid[10000:20000] = True
-    mask_test[20000:30000] = True
-    mask_train[30000:70000] = True
+    mask_train[:950] = True
+    mask_valid[1000:1050] = True
+    mask_test[2000:3000] = True
 
     # COnvert masks to splits
     splits = {}

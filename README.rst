@@ -29,12 +29,12 @@ Using pip
 Cormorant is installable from source using pip.  You can currently install it from
 source by going to the directory with setup.py and running::
 
-    pip install cormorant .
+    pip install .
 
 If you would like to modify the source code directly, note that Cormorant
 can also be installed in "development mode" using the command::
 
-    pip install cormorant -e .
+    pip install -e .
 
 
 Training example
