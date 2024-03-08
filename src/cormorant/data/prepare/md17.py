@@ -10,14 +10,14 @@ from cormorant.data.prepare.utils import download_data, is_int, cleanup_file
 
 md17_base_url = 'http://quantum-machine.org/gdml/data/npz/'
 
-md17_subsets = {'benzene': 'benzene_old_dft',
+md17_subsets = {'benzene': 'md17_benzene2017',
                'uracil': 'md17_uracil',
                'naphthalene': 'md17_naphthalene',
                'aspirin': 'md17_aspirin',
                'salicylic_acid': 'md17_salicylic',
                'malonaldehyde': 'md17_malonaldehyde',
                'ethanol': 'md17_ethanol',
-               'toluene': '	md17_toluene',
+               'toluene': 'md17_toluene',
                'paracetamol': 'paracetamol_dft',
                'azobenzene': 'azobenzene_dft'
                }
